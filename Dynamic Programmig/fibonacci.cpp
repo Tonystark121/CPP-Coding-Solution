@@ -31,6 +31,9 @@ using namespace std;
 
 //bottom up approach
 void solve(){
+
+    //approach 1.
+
     int n; cin>>n;
     vi dp(n+1);
     dp[1]=1;
@@ -38,6 +41,17 @@ void solve(){
         dp[i] = dp[i-1] + dp[i-2];
     }
     cout<<dp[n]<<nl;
+
+    //approach 2.
+    //int n; cin>>n;
+    ll a = 0, b = 1, c;
+    for(int i=2;i<=n;i++){
+        c = a + b;
+        a = b;
+        b = c;
+    }
+
+    cout<<c<<nl;
 }
 
 int main(){
