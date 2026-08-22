@@ -14,29 +14,24 @@ using namespace std;
 
 void solve(){
     int n; cin>>n;
-    vi a(n), b(n);
-    for(auto &i: a) cin>>i;
-    for(auto &i: b) cin>>i;
+    vi a(n);
+    for(auto &it:a) cin>>it;
+    sort(all(a));
 
-    ll t = max(a[0], b[0]);
-    int s = max(a[0], b[0]);
-    f(i,1,n){
-        if(s==a[0]){
-            if(i&1) t += b[i];
-            else t += a[i];
-        }
-        else{
-            if((i&1)==0) t += b[i];
-            else t += a[i];
-        }
+    int m1 = a[n / 2], m2 = a[n / 2  - 1];
+    ll s1 = 0, s2 = 0;
+    f(i,0,n){
+        s1 += abs(a[i] - m1);
+        if((n & 1) == 0) s2 += abs(a[i] - m2);
     }
-
-    cout<<t<<nl;
+    if(n & 1) cout<<s1<<nl;
+    else cout<<min(s1, s2)<<nl;
 }
+
 
 int main(){
     int t=1; 
-    cin>>t;
+    // cin>>t;
     while(t--){
         solve();
     }
