@@ -26,4 +26,10 @@ what is difference between server side rendering (SSR), client side rendering (C
     SSG -> built at deploy time, served instantly.
 
 
-Problem
+Everytime solving new problem: 
+    'Ask this important question to yourself regularly: '
+        1. What can the operation NOT change? -> eg: relative order fixed
+        2. What does a valid final state HAVE to look like? -> eg: x,x+1,…,x+k−1
+        3. If I fix the final state, what is the minimum cost? -> ∑distance moved
+        4. Does this resemble a problem I already know? -> min​∑∣ai​−x∣
+        5. Can I transform that cost into a known mathematical optimization?

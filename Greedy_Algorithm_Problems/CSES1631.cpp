@@ -12,6 +12,15 @@ using namespace std;
 #define ff first 
 #define ss second
 
+/*
+    This problem belongs in your Scheduling / Lower-Bound toolbox. 
+        whenever see -> two workers/processors, tasks/jobs, tasks can run in parallel, some particular task has a special restriction
+    In s uch problem : total workload bound + largest / critical - task bound.
+    Then ask whether those bounds are simultaneously achievable. 
+        Which information can I throw away without affecting the answer?
+        Does the exact ordering of the books even matter to the answer?
+*/
+
 void solve(){
     int n; cin>>n;
     vi a(n);
