@@ -26,7 +26,7 @@ using namespace std;
         5. lower/upper bound.
 */
 
-void solve(){~
+void solve(){
     int n; cin>>n;
     string a,b; cin>>a>>b;
     vi parityA[2], parityB[2];
