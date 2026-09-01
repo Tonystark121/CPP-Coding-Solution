@@ -20,37 +20,31 @@ int gcd(int a, int b){
 void solve() {
     int n, m;
     cin >> n >> m;
+    // what is the use/ role of m here
+    vi a;
+    map<int,int>mp;
+    for(int i=0;i<n;i++){
+        int x; cin>>x;
+        a.pb(x);
+        mp[x]++;
+    }
+    sort(all(a));
 
-    vi a(n);
-
-    for (int &x : a)
-        cin >> x;
-
-    sort(a.begin(), a.end());
-
-    int mx = 0;
-
-    for (int i = 0; i < n; ) {
-        int x = a[i];
-
-        // Find frequency of x
-        int j = upper_bound(a.begin() + i, a.end(), x) - a.begin();
-        int freq = j - i;
-
-        int t = (x & 1) ? x : x / 2;
-
-        // Number of elements >= t
-        int pos = lower_bound(a.begin(), a.end(), t) - a.begin();
-        int ct = n - pos;
-
-        int val = ((x & 1) ? freq : 2 * freq) + ct - freq;
-
-        mx = max(mx, val);
-
-        i = j;
+    // it is given all elements will be. <= m, so store for each m how many element >= m
+    vi sf (m+2,0);
+    for(int i=m;i>=1;i--){
+        sf[i] = mp[i] + sf[i+1];
+    }
+    int ans = n;
+    
+    f(i,0,m+1){
+        int x = sf[i];
+        if(i * 2 <= m) x += mp[2*i];
+        ans = max(ans, x);
     }
 
-    cout << mx << nl;
+    cout<<ans<<nl;
+
 }
 
 int main() {
