@@ -18,6 +18,8 @@ void solve(){
     for(auto &i: a) cin>>i;
     for(auto &i: b) cin>>i;
 
+    map<int,int>mp;
+
     ll t = max(a[0], b[0]);
     int s = max(a[0], b[0]);
     f(i,1,n){
